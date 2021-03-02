@@ -1,11 +1,14 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
     service: reverseproxy
-  name: reverseproxy
+  name: udacity-reverse-proxy
 spec:
   replicas: 1
+  selector:
+  matchLabels:
+    app: udacity-reverse-proxy
   template:
     metadata:
       labels:
